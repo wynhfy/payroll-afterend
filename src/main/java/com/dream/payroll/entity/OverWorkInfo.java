@@ -21,7 +21,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author wyn
- * @since 2020-05-06
+ * @since 2020-05-10
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -34,6 +34,9 @@ public class OverWorkInfo implements Serializable {
     @ApiModelProperty(value = "加班类别id")
     @TableId(value = "id", type = IdType.ID_WORKER_STR)
     private String id;
+
+    @ApiModelProperty(value = "加班类别信息描述")
+    private String description;
 
     @ApiModelProperty(value = "加班费,按小时算")
     private BigDecimal fee;
