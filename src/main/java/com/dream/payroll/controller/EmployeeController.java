@@ -173,12 +173,12 @@ public class EmployeeController {
      */
     @PostMapping("addEmployee")
     public Result addEmployee(@RequestBody EmployeeVo employeeVo){
-       boolean flag=employeeService.saveEmployeeAndAddress(employeeVo);
-       if(flag){
-           return Result.ok();
-       }else {
-           return Result.error();
-       }
+        boolean flag=employeeService.saveEmployeeAndAddress(employeeVo);
+        if(flag){
+            return Result.ok();
+        }else {
+            return Result.error();
+        }
     }
 
     /**

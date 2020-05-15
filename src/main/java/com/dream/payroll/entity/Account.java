@@ -15,7 +15,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 员工
+ * 会员表
  * </p>
  *
  * @author wyn
@@ -24,47 +24,29 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@ApiModel(value="Employee对象", description="员工")
-public class Employee implements Serializable {
+@ApiModel(value="Account对象", description="会员表")
+public class Account implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "员工ID")
+    @ApiModelProperty(value = "id")
     @TableId(value = "id", type = IdType.ID_WORKER_STR)
     private String id;
 
-    @ApiModelProperty(value = "员工姓名")
-    private String name;
+    @ApiModelProperty(value = "微信openid")
+    private String openid;
 
-    @ApiModelProperty(value = "员工性别")
-    private String sex;
+    @ApiModelProperty(value = "手机号")
+    private String mobile;
 
-    @ApiModelProperty(value = "员工年龄")
-    private Integer age;
+    @ApiModelProperty(value = "密码")
+    private String password;
 
-    @ApiModelProperty(value = "民族")
-    private String nation;
+    @ApiModelProperty(value = "工号")
+    private String employeeId;
 
-    @ApiModelProperty(value = "电话")
-    private String telephone;
-
-    @ApiModelProperty(value = "邮箱")
-    private String email;
-
-    @ApiModelProperty(value = "学历")
-    private String academic;
-
-    @ApiModelProperty(value = "所属部门")
-    private String deptId;
-
-    @ApiModelProperty(value = "工种")
-    private String workId;
-
-    @ApiModelProperty(value = "头像")
-    private String avatar;
-
-    @ApiModelProperty(value = "是否激活(是否进行注册)")
-    private Boolean isActive;
+    @ApiModelProperty(value = "是否禁用 1(true)已经禁用，0(false)未禁用")
+    private Boolean isDisabled;
 
     @ApiModelProperty(value = "创建时间")
     @TableField(fill = FieldFill.INSERT)

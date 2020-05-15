@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/payroll/user")
 @CrossOrigin
-public class LoginController {
+public class AdminLoginController {
 
 
     @PostMapping("login")
