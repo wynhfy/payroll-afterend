@@ -79,19 +79,27 @@ public class OverWorkController {
      */
     @PostMapping("addOrUpdateOverWork")
     public Result addOrUpdateOverWork(@RequestBody OverWork overWork){
+        System.out.println(overWork);
         String employeeId=overWork.getEmployeeId();
         String status=overWork.getStatus();
         if(StringUtils.isEmpty(employeeId) || StringUtils.isEmpty(status)){
             return Result.error().message("参数为空");
         }
-        boolean flag=overWorkService.saveOverWork(overWork);
-        if(flag){
-            return Result.ok();
-        }else{
-            return Result.error();
-        }
+        Result result=overWorkService.saveOverWork(overWork);
+        return result;
     }
 
+    /**
+     * 获取加班记录信息
+     * @param id
+     * @return
+     */
+    @GetMapping("getOverWorkInfo/{id}")
+    public Result getOverWorkInfo(@PathVariable("id") String id){
+        OverWork overWork=overWorkService.getById(id);
+        System.out.println("=============================================================="+overWork.toString());
+        return Result.ok().data("overWork",overWork);
+    }
 
 
 }

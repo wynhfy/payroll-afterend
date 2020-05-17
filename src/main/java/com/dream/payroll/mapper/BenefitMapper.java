@@ -2,6 +2,7 @@ package com.dream.payroll.mapper;
 
 import com.dream.payroll.entity.Benefit;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import java.util.List;
 
 /**
  * <p>
@@ -12,5 +13,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @since 2020-05-13
  */
 public interface BenefitMapper extends BaseMapper<Benefit> {
+
+    List<Benefit> getBenefitByIdAndDate(String employeeId,String datetime);
 
 }

@@ -2,6 +2,7 @@ package com.dream.payroll.mapper;
 
 import com.dream.payroll.entity.OverWork;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import java.util.List;
 
 /**
  * <p>
@@ -9,8 +10,10 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author wyn
- * @since 2020-05-13
+ * @since 2020-05-16
  */
 public interface OverWorkMapper extends BaseMapper<OverWork> {
+
+    List<OverWork> getOverWorkByDate(String datetime);
 
 }

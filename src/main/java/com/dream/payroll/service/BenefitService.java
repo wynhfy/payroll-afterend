@@ -2,6 +2,7 @@ package com.dream.payroll.service;
 
 import com.dream.payroll.entity.Benefit;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.dream.payroll.entity.OverWork;
 
 /**
  * <p>
@@ -12,5 +13,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2020-05-13
  */
 public interface BenefitService extends IService<Benefit> {
+
+    void updateBendfit(OverWork overWork);
 
 }

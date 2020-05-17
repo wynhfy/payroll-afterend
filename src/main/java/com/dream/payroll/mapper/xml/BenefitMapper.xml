@@ -2,4 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dream.payroll.mapper.BenefitMapper">
 
+    <select id="getBenefitByIdAndDate" parameterType="string" resultType="com.dream.payroll.entity.Benefit">
+        select id,employee_id,over_time,over_day,benefit_money,gmt_create,gmt_modified from benefit
+        where DATE_FORMAT(gmt_create,'%Y-%m-%d') like concat(#{datetime},'%') and employee_id=#{employeeId}
+    </select>
+
 </mapper>

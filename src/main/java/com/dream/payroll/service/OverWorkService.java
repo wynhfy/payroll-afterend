@@ -2,6 +2,7 @@ package com.dream.payroll.service;
 
 import com.dream.payroll.entity.OverWork;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.dream.payroll.result.Result;
 
 /**
  * <p>
@@ -13,5 +14,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface OverWorkService extends IService<OverWork> {
 
-    boolean saveOverWork(OverWork overWork);
+    Result saveOverWork(OverWork overWork);
 }

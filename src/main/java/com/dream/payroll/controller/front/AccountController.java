@@ -1,4 +1,4 @@
-package com.dream.payroll.controller;
+package com.dream.payroll.controller.front;
 
 
 import com.dream.payroll.entity.Account;
@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * <p>
- * 会员表 前端控制器
+ * 会员表 前端控制器  前台登录注册接口
  * </p>
  *
  * @author wyn
@@ -31,6 +31,7 @@ public class AccountController {
     @PostMapping("login")
     public Result login(@RequestBody AccountVo accountVo){
         String token=accountService.login(accountVo);
+        System.out.println(token);
         return Result.ok().data("token",token);
     }
 

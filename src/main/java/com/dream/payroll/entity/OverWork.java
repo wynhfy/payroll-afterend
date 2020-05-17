@@ -19,7 +19,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author wyn
- * @since 2020-05-13
+ * @since 2020-05-16
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -38,6 +38,8 @@ public class OverWork implements Serializable {
 
     @ApiModelProperty(value = "加班类别id")
     private String typeId;
+
+    private String description;
 
     @ApiModelProperty(value = "开始加班和结束加班")
     private String status;
