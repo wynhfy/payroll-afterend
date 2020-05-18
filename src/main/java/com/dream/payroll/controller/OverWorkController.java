@@ -1,6 +1,7 @@
 package com.dream.payroll.controller;
 
 
+import com.alibaba.fastjson.JSONArray;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.dream.payroll.entity.OverWork;
@@ -11,6 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,7 +41,7 @@ public class OverWorkController {
      * @return
      */
     @PostMapping("pageCondition/{current}/{limit}")
-    public Result getOverWorkList(@PathVariable("current") long current, @PathVariable("limit") long limit, @RequestBody(required = false)OverWorkQuery overWorkQuery){
+    public Result getOverWorkList(@PathVariable("current") long current, @PathVariable("limit") long limit, @RequestBody(required = false) OverWorkQuery overWorkQuery){
         Page<OverWork> page=new Page<>(current,limit);
         QueryWrapper<OverWork> wrapper=new QueryWrapper<>();
         String employeeId=overWorkQuery.getEmployeeId();
@@ -89,8 +91,27 @@ public class OverWorkController {
         return result;
     }
 
+
+    @DeleteMapping("{id}")
+    public Result remove(@PathVariable("id") String id){
+        overWorkService.removeById(id);
+        return Result.ok();
+    }
+
+
+    @PostMapping("removeByBatch")
+    public Result removeByBatch(@RequestBody String overWorks){
+        List<OverWork> list=(List<OverWork>) JSONArray.parseArray(overWorks,OverWork.class);
+        List<String> ids=new ArrayList<>();
+        for(OverWork overWork:list){
+            ids.add(overWork.getId());
+        }
+        overWorkService.removeByIds(ids);
+        return Result.ok();
+    }
+
     /**
-     * 获取加班记录信息
+     * 获取加班记录信息,测试用
      * @param id
      * @return
      */
