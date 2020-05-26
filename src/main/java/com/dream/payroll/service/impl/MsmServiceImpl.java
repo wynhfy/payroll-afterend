@@ -23,7 +23,7 @@ public class MsmServiceImpl implements MsmService {
     public boolean send(Map<String, String> params, String phone) {
         if(StringUtils.isEmpty(phone)) return false;
         DefaultProfile profile =
-                DefaultProfile.getProfile("default", "LTAI4GAH1FvXJPyGrFMxo8v6", "AtcQTZQmLvUXnGWRmXqwATzfkS0dMl");
+                DefaultProfile.getProfile("default", "", "");
         IAcsClient client = new DefaultAcsClient(profile);
         CommonRequest request = new CommonRequest();
 
