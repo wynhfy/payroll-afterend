@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dream.payroll.mapper.MonthSalaryMapper">
+
+    <select id="selectByDateTime" resultType="com.dream.payroll.entity.MonthSalary">
+        select id,employee_id,name,base_salary,benefit,deduct_money,final_money,year,month,gmt_create,gmt_modified from month_salary
+        where year=#{year} and month=#{month} and employee_id=#{employeeId}
+    </select>
+
+</mapper>

@@ -7,4 +7,10 @@
         where DATE_FORMAT(gmt_create,'%Y-%m-%d') like concat(#{datetime},'%') and employee_id=#{employeeId}
     </select>
 
+    <select id="selectCount" resultType="com.dream.payroll.entity.Attendance">
+        select id,status,employee_id,gmt_create,gmt_modified from attendance
+        where DATE_FORMAT(gmt_create,'%Y-%m-%d') like concat(#{datetime},'%') and employee_id=#{employeeId}
+    </select>
+
+
 </mapper>

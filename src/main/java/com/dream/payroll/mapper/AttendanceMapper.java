@@ -3,6 +3,7 @@ package com.dream.payroll.mapper;
 import com.dream.payroll.entity.Attendance;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
+import java.util.List;
 
 /**
  * <p>
@@ -15,5 +16,7 @@ import org.apache.ibatis.annotations.Param;
 public interface AttendanceMapper extends BaseMapper<Attendance> {
 
     Attendance selectByDateTime(@Param("datetime") String datetime, @Param("employeeId") String employeeId);
+
+    List<Attendance> selectCount(@Param("datetime") String datetime,@Param("employeeId") String employeeId);
 
 }
